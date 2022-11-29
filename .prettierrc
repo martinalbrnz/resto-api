@@ -1,4 +1,16 @@
 {
   "singleQuote": true,
-  "trailingComma": "all"
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "overrides": [
+    {
+      "files": [
+        "*"
+      ],
+      "options": {
+        "semi": false,
+        "bracketSpacing": true
+      }
+    }
+  ]
 }

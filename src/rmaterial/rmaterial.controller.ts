@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { RmaterialService } from './rmaterial.service';
 import { CreateRmaterialDto } from './dto/create-rmaterial.dto';
 import { UpdateRmaterialDto } from './dto/update-rmaterial.dto';
@@ -23,7 +31,10 @@ export class RmaterialController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateRmaterialDto: UpdateRmaterialDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateRmaterialDto: UpdateRmaterialDto,
+  ) {
     return this.rmaterialService.update(+id, updateRmaterialDto);
   }
 

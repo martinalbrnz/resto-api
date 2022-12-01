@@ -19,7 +19,7 @@ export class RmaterialService {
   }
 
   async create(createRmaterialDto: CreateRmaterialDto): Promise<RMaterial> {
-    const createdMaterial = new this.rawMaterialModel({ ...createRmaterialDto }).save()
+    const createdMaterial = new this.rawMaterialModel(createRmaterialDto).save()
     return createdMaterial
   }
 

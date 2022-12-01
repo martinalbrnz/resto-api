@@ -12,7 +12,6 @@ import {
 } from '@nestjs/common'
 import { RmaterialService } from './rmaterial.service'
 import { CreateRmaterialDto } from './dto/create-rmaterial.dto'
-// import { UpdateRmaterialDto } from './dto/update-rmaterial.dto'
 
 @Controller('rmaterial')
 export class RmaterialController {

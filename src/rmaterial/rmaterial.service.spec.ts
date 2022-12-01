@@ -1,18 +1,18 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { RmaterialService } from './rmaterial.service';
+import { Test, TestingModule } from '@nestjs/testing'
+import { RmaterialService } from './rmaterial.service'
 
 describe('RmaterialService', () => {
-  let service: RmaterialService;
+  let service: RmaterialService
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [RmaterialService],
-    }).compile();
+    }).compile()
 
-    service = module.get<RmaterialService>(RmaterialService);
-  });
+    service = module.get<RmaterialService>(RmaterialService)
+  })
 
   it('should be defined', () => {
-    expect(service).toBeDefined();
-  });
-});
+    expect(service).toBeDefined()
+  })
+})

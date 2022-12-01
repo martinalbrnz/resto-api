@@ -6,7 +6,7 @@ import { RMaterial } from './interfaces/rMaterial.interface'
 
 @Injectable()
 export class RmaterialService {
-  constructor(@InjectModel('RawMaterial') private rawMaterialModel: Model<RMaterial>) {}
+  constructor(@InjectModel('RawMaterial') private rawMaterialModel: Model<RMaterial>) { }
 
   async findAll(): Promise<RMaterial[]> {
     const Materials = await this.rawMaterialModel.find()
@@ -19,7 +19,7 @@ export class RmaterialService {
   }
 
   async create(createRmaterialDto: CreateRmaterialDto): Promise<RMaterial> {
-    const createdMaterial = await new this.rawMaterialModel({createRmaterialDto})
+    const createdMaterial = new this.rawMaterialModel(createRmaterialDto).save()
     return createdMaterial
   }
 
@@ -28,8 +28,8 @@ export class RmaterialService {
     return deletedMaterial
   }
 
-  async update(materialID:string, createRmaterialDto: CreateRmaterialDto): Promise<RMaterial> {
-    const updatedMaterial = await this.rawMaterialModel.findByIdAndUpdate(materialID, createRmaterialDto, {new: true})
+  async update(materialID: string, createRmaterialDto: CreateRmaterialDto): Promise<RMaterial> {
+    const updatedMaterial = await this.rawMaterialModel.findByIdAndUpdate(materialID, createRmaterialDto, { new: true })
     return updatedMaterial
   }
 }

@@ -1,27 +1,36 @@
 import { Injectable } from '@nestjs/common'
+import { InjectModel } from '@nestjs/mongoose'
+import { Model } from 'mongoose'
 import { CreateCommandDto } from './dto/create-command.dto'
 import { UpdateCommandDto } from './dto/update-command.dto'
+import { Command, CommandDocument } from './schemas/command.schema'
 
 @Injectable()
 export class CommandsService {
-  findAll() {
-    return 'This action returns all commands'
+  constructor(@InjectModel(Command.name) private commandModel: Model<CommandDocument>) { }
+
+  findAll(): Promise<Command[]> {
+    const allCommands = this.commandModel.find().exec()
+    return allCommands
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} command`
+  findOne(id: string) {
+    const command = this.commandModel.findById(id).exec()
+    return command
   }
 
-  create(createCommandDto: CreateCommandDto) {
-    console.log(createCommandDto)
-    return 'This action adds a new command'
+  async create(createCommandDto: CreateCommandDto) {
+    const createdCommand = new this.commandModel(createCommandDto).save()
+    return createdCommand
   }
 
-  update(id: number, updateCommandDto: UpdateCommandDto) {
-    return `This action updates a #${updateCommandDto} command`
+  update(id: string, updateCommandDto: UpdateCommandDto) {
+    const updatedCommand = this.commandModel.findByIdAndUpdate(id, updateCommandDto, { new: true })
+    return updatedCommand
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} command`
+  remove(id: string) {
+    const deletedCommand = this.commandModel.findByIdAndDelete(id)
+    return deletedCommand
   }
 }

@@ -7,11 +7,6 @@ import { UpdateCommandDto } from './dto/update-command.dto'
 export class CommandsController {
   constructor(private readonly commandsService: CommandsService) {}
 
-  @Post()
-  create(@Body() createCommandDto: CreateCommandDto) {
-    return this.commandsService.create(createCommandDto)
-  }
-
   @Get()
   findAll() {
     return this.commandsService.findAll()
@@ -19,16 +14,21 @@ export class CommandsController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.commandsService.findOne(+id)
+    return this.commandsService.findOne(id)
+  }
+
+  @Post()
+  create(@Body() createCommandDto: CreateCommandDto) {
+    return this.commandsService.create(createCommandDto)
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateCommandDto: UpdateCommandDto) {
-    return this.commandsService.update(+id, updateCommandDto)
+    return this.commandsService.update(id, updateCommandDto)
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.commandsService.remove(+id)
+    return this.commandsService.remove(id)
   }
 }

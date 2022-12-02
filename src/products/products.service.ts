@@ -14,7 +14,7 @@ export class ProductsService {
     return allProducts
   }
 
-  findOne(id: number): Promise<Product> {
+  findOne(id: number) {
     const product = this.productModel.findById(id).exec()
     return product
   }

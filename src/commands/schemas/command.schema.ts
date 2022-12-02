@@ -12,8 +12,8 @@ export class Command {
   @Prop({ required: true })
     order: OrdererProduct[]
 
-  @Prop({ required: true, default: 'In Process' })
-    status: State
+  @Prop({ default: 0 })
+    generalState: State
 }
 
 export const CommandSchema = SchemaFactory.createForClass(Command)

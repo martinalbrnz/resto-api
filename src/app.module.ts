@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config'
 import { MongooseModule } from '@nestjs/mongoose'
 import { StaffModule } from './staff/staff.module'
 import { ProductsModule } from './products/products.module'
+import { CommandsModule } from './commands/commands.module'
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { ProductsModule } from './products/products.module'
     StaffModule,
     RmaterialModule,
     ProductsModule,
+    CommandsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

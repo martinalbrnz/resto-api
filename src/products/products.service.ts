@@ -14,7 +14,7 @@ export class ProductsService {
     return allProducts
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     const product = this.productModel.findById(id).exec()
     return product
   }
@@ -24,12 +24,12 @@ export class ProductsService {
     return createdProduct
   }
 
-  update(id: number, updateProductDto: UpdateProductDto) {
-    const updatedProduct = this.productModel.findByIdAndUpdate(id, updateProductDto)
+  update(id: string, updateProductDto: UpdateProductDto) {
+    const updatedProduct = this.productModel.findByIdAndUpdate(id, updateProductDto, { new: true })
     return updatedProduct
   }
 
-  remove(id: number) {
+  remove(id: string) {
     const deletedProduct = this.productModel.findByIdAndDelete(id)
     return deletedProduct
   }

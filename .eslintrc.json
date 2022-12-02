@@ -13,11 +13,12 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "max-len": ["error", { "code": 120 }],
-    "indent": ["error", 2],
+    "indent": ["warn", 2],
     "quotes": ["error", "single"],
     "eqeqeq": ["warn", "smart"],
     "no-extra-semi": "error",
     "semi": ["warn", "never"],
-    "no-multiple-empty-lines": ["error"]
+    "no-multiple-empty-lines": ["error"],
+    "eol-last": "error"
   }
 }

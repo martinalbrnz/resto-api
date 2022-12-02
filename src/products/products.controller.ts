@@ -9,7 +9,8 @@ export class ProductsController {
 
   @Post()
   create(@Body() createProductDto: CreateProductDto) {
-    return this.productsService.create(createProductDto)
+    console.log(createProductDto)
+    return this.productsService.create()
   }
 
   @Get()
@@ -24,7 +25,8 @@ export class ProductsController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {
-    return this.productsService.update(+id, updateProductDto)
+    console.log(updateProductDto)
+    return this.productsService.update(+id)
   }
 
   @Delete(':id')

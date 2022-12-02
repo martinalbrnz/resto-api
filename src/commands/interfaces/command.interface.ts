@@ -1,6 +1,6 @@
 import { OrdererProduct, State } from 'src/constants/CommandState'
 
-export class CreateCommandDto {
+export interface Command {
   table: number
   order: OrdererProduct[]
   generalState: State

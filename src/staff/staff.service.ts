@@ -20,15 +20,15 @@ export class StaffService {
     return this.staffModel.find().exec()
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return this.staffModel.findById(id).exec()
   }
 
-  update(id: number, updateStaffDto: UpdateStaffDto) {
+  update(id: string, updateStaffDto: UpdateStaffDto) {
     return this.staffModel.findByIdAndUpdate(id, updateStaffDto)
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return this.staffModel.findByIdAndDelete(id)
   }
 }

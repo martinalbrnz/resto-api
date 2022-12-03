@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
-import { HydratedDocument, Types, Schema as MongooseSchema } from 'mongoose'
+import { HydratedDocument } from 'mongoose'
 import { Status } from 'src/constants/TableStatus'
 
 export type TableDocument = HydratedDocument<Table>
@@ -9,8 +9,8 @@ export class Table {
   @Prop({ required: true })
     num: number
 
-  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'command', required: true })
-    command: Types.ObjectId[]
+  @Prop({ required: false })
+    command: string[] | []
 
   @Prop({ default: 0 })
     status: Status

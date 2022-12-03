@@ -30,7 +30,7 @@ export class TablesService {
   }
 
   remove(id: string) {
-    const deletedTable = this.tableMethod.findByIdAndDelete(id)
-    return deletedTable
+    const editedTable = this.tableMethod.findByIdAndUpdate(id, { command: [] }, { new: true })
+    return editedTable
   }
 }

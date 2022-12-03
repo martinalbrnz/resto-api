@@ -1,9 +1,8 @@
-import { ObjectId } from 'mongoose'
 import { Status } from 'src/constants/TableStatus'
 
 export class CreateTableDto {
   num: number
-  commands: ObjectId[]
+  commands: string[] | []
   status: Status
   sector: number
 }

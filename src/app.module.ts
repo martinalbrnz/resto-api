@@ -7,6 +7,7 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { StaffModule } from './staff/staff.module'
 import { ProductsModule } from './products/products.module'
 import { CommandsModule } from './commands/commands.module'
+import { TablesModule } from './tables/tables.module'
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { CommandsModule } from './commands/commands.module'
     RmaterialModule,
     ProductsModule,
     CommandsModule,
+    TablesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

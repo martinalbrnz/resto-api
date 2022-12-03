@@ -27,7 +27,7 @@ export class TablesController {
     return this.tablesService.update(id, updateTableDto)
   }
 
-  @Patch(':id')
+  @Patch('/clear/:id')
   remove(@Param('id') id: string) {
     return this.tablesService.remove(id)
   }

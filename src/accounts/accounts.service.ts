@@ -24,13 +24,13 @@ export class AccountsService {
       .exec()
   }
 
+  findQuantity() {
+    return this.accountModel.countDocuments().exec()
+  }
+
   findOne(id: string) {
     return this.accountModel.findById(id).exec()
   }
-
-  // findBalance() {
-  //   return this.accountModel.aggregate([{ $group: { _id: '$account', amount: { $sum: '$amount' } } }])
-  // }
 
   update(id: string, updateAccountDto: UpdateAccountDto) {
     return this.accountModel.findByIdAndUpdate(id, updateAccountDto, { new: true })

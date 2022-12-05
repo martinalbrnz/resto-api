@@ -25,10 +25,24 @@ export class MovementsService {
       .exec()
   }
 
+  findQuantity() {
+    return this.movementModel.countDocuments()
+  }
+
   findOne(id: string) {
     return this.movementModel.findById(id)
       .populate('account', { _id: 0, name: 1 })
       .exec()
+  }
+
+  findBalance() {
+    return this.movementModel
+      .aggregate([{ $group: { _id: '$account', amount: { $sum: '$amount' } } }])
+      .exec()
+  }
+
+  findTotal() {
+    return this.movementModel.aggregate([{ $group: { _id: null, amount: { $sum: '$amount' } } }]).exec()
   }
 
   update(id: string, updateMovementDto: UpdateMovementDto) {

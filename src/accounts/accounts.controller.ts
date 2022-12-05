@@ -28,11 +28,19 @@ export class AccountsController {
   }
 
   @Get()
-  findIndex(@Query() query: IndexAccountDto) {
+  async findIndex(@Query() query: IndexAccountDto) {
     try {
-      return this.accountsService.findIndexed(query.index, query.size)
+      const accounts = await this.accountsService.findIndexed(query.index, query.size)
+      const max = await this.accountsService.findQuantity()
+      if (!accounts) {
+        throw new BadRequestException(NotFoundException)
+      }
+      return { accounts, max }
     } catch (error) {
-      return error
+      throw new HttpException({
+        status: HttpStatus.NOT_FOUND,
+        error: 'Element not found',
+      }, HttpStatus.NOT_FOUND)
     }
   }
 

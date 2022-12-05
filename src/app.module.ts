@@ -9,6 +9,7 @@ import { ProductsModule } from './products/products.module'
 import { CommandsModule } from './commands/commands.module'
 import { TablesModule } from './tables/tables.module'
 import { AccountsModule } from './accounts/accounts.module';
+import { MovementsModule } from './movements/movements.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { AccountsModule } from './accounts/accounts.module';
     CommandsModule,
     TablesModule,
     AccountsModule,
+    MovementsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

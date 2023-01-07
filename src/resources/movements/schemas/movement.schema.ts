@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
+import { Account } from '@resources/accounts/schemas/account.schema'
 import mongoose, { Date, HydratedDocument } from 'mongoose'
-import { Account } from 'src/accounts/schemas/account.schema'
 
 export type MovementDocument = HydratedDocument<Movement>
 

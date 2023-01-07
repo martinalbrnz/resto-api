@@ -12,7 +12,7 @@ import {
   Post,
   Query
 } from '@nestjs/common'
-import { AccountsService } from 'src/accounts/accounts.service'
+import { AccountsService } from '@resources/accounts/accounts.service'
 import { CreateMovementDto } from './dto/create-movement.dto'
 import { IndexMovementDto } from './dto/index-movement.dto'
 import { UpdateMovementDto } from './dto/update-movement.dto'

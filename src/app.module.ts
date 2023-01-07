@@ -1,15 +1,15 @@
 import { Module } from '@nestjs/common'
-import { AppController } from './app.controller'
-import { AppService } from './app.service'
-import { RmaterialModule } from './rmaterial/rmaterial.module'
 import { ConfigModule } from '@nestjs/config'
 import { MongooseModule } from '@nestjs/mongoose'
-import { StaffModule } from './staff/staff.module'
-import { ProductsModule } from './products/products.module'
-import { CommandsModule } from './commands/commands.module'
-import { TablesModule } from './tables/tables.module'
-import { AccountsModule } from './accounts/accounts.module';
-import { MovementsModule } from './movements/movements.module';
+import { AccountsModule } from '@resources/accounts/accounts.module'
+import { CommandsModule } from '@resources/commands/commands.module'
+import { MovementsModule } from '@resources/movements/movements.module'
+import { ProductsModule } from '@resources/products/products.module'
+import { RmaterialModule } from '@resources/rmaterial/rmaterial.module'
+import { StaffModule } from '@resources/staff/staff.module'
+import { TablesModule } from '@resources/tables/tables.module'
+import { AppController } from './app.controller'
+import { AppService } from './app.service'
 
 @Module({
   imports: [
@@ -26,4 +26,4 @@ import { MovementsModule } from './movements/movements.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

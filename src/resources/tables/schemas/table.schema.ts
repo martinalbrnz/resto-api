@@ -7,16 +7,13 @@ export type TableDocument = HydratedDocument<Table>
 @Schema()
 export class Table {
   @Prop({ required: true })
-    num: number
-
-  @Prop({ required: false })
-    command: string[] | []
+  num: number
 
   @Prop({ default: 0 })
-    status: Status
+  status: Status
 
   @Prop({ required: true, default: 0 })
-    sector: 0
+  sector: 0
 }
 
 export const TableSchema = SchemaFactory.createForClass(Table)

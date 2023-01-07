@@ -1,11 +1,16 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common'
 import { CommandsService } from './commands.service'
 import { CreateCommandDto } from './dto/create-command.dto'
 import { UpdateCommandDto } from './dto/update-command.dto'
 
 @Controller('commands')
 export class CommandsController {
-  constructor(private readonly commandsService: CommandsService) {}
+  constructor(private readonly commandsService: CommandsService) { }
+
+  @Get()
+  findByStatus(@Query() query: { status: number }) {
+    return this.commandsService.findByStatus(Number(query.status))
+  }
 
   @Get()
   findAll() {

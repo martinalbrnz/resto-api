@@ -10,12 +10,38 @@ export class CommandsService {
   constructor(@InjectModel(Command.name) private commandModel: Model<CommandDocument>) { }
 
   findAll(): Promise<Command[]> {
-    const allCommands = this.commandModel.find().exec()
+    const allCommands = this.commandModel
+      .find()
+      .populate('order.product', {
+        'units': 0,
+        '__v': 0
+      })
+      .populate('waiter', { '__v': 0 })
+      .exec()
     return allCommands
   }
 
+  findByStatus(status: number): Promise<Command[]> {
+    const pendingCommands = this.commandModel
+      .find({ status })
+      .populate('order.product', {
+        'units': 0,
+        '__v': 0
+      })
+      .populate('waiter', { '__v': 0 })
+      .exec()
+    return pendingCommands
+  }
+
   findOne(id: string) {
-    const command = this.commandModel.findById(id).exec()
+    const command = this.commandModel
+      .findById(id)
+      .populate('order.product', {
+        'units': 0,
+        '__v': 0
+      })
+      .populate('waiter', { '__v': 0 })
+      .exec()
     return command
   }
 

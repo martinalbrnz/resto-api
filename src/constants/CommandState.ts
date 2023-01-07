@@ -1,7 +1,7 @@
 export enum State {
   InProgress = 0,
-  Completed,
+  Completed = 1,
   Cancelled,
 }
 
-export type OrdererProduct = { productId: string, units: number, state: State }
+export type OrdererProduct = { product: string, units: number, state: State }
